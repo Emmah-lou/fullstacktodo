@@ -34,7 +34,9 @@ $(document).ready(function () {
       id,
       function (response) {
         console.log("Task deleted successfully:", response);
-        displayTasks(response.tasks);
+        indexTasks(function (response) {
+          displayTasks(response.tasks);
+        });
       },
       function (error) {
         console.error("Error deleting task:", error);
@@ -50,7 +52,9 @@ $(document).ready(function () {
       id,
       function (response) {
         console.log("Task updated successfully:", response);
-        displayTasks(response.tasks);
+        indexTasks(function (response) {
+          displayTasks(response.tasks);
+        });
       },
       function (error) {
         console.error("Error updating task:", error);
@@ -66,8 +70,11 @@ $(document).ready(function () {
       taskContent,
       function (response) {
         console.log("Task posted successfully:", response);
-        displayTasks(response.tasks);
+        // displayTasks(response.tasks);
         $("#task_content").val(""); // Clear the input field after successful submission
+        indexTasks(function (response) {
+          displayTasks(response.tasks);
+        });
       },
       function (error) {
         console.error("Error posting task:", error);
