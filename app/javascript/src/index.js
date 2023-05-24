@@ -44,6 +44,7 @@ $(document).ready(function () {
 
   $(document).on("click", ".active-complete", function () {
     var id = $(this).parent(".task").data("id");
+    console.log(id);
     //if task is active, mark as complete
     updateTask(
       id,
